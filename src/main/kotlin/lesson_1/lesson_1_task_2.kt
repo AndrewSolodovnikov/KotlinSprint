@@ -6,4 +6,12 @@ fun main() {
 
     println(numberOfOrders)
     println(purchaseMessage)
+
+    var employee = 2000
+
+    //println(employee)
+
+    employee = 1999
+
+    println(employee)
 }

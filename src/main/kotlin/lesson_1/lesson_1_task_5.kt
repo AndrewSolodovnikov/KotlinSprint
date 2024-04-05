@@ -1,20 +1,15 @@
 package lesson_1
 
+const val allSeconds = 6488
+const val oneHourInSeconds = 3600
+const val oneMinuteInSeconds = 60
 fun main() {
-    val allSeconds = 6488
+    val hours = allSeconds / oneHourInSeconds
+    val remainingSeconds = allSeconds - (hours * oneHourInSeconds)
+    val minutes = remainingSeconds / oneMinuteInSeconds
+    val seconds = remainingSeconds % oneMinuteInSeconds
 
-    val hours = allSeconds / 3600
-    val minutes = (allSeconds - (hours * 3600)) / 60
-    val seconds = (allSeconds - (hours * 3600)) % 60
+    val timerStr = String.format("%02d:%02d:%02d", hours, minutes, seconds)
 
-    val hoursFromTimer = String.format("%02d", hours)
-    val minutesFromTimer = String.format("%02d", minutes)
-    val secondsFromTimer = String.format("%02d", seconds)
-
-    print(hoursFromTimer)
-    print(":")
-    print(minutesFromTimer)
-    print(":")
-    print(secondsFromTimer)
-
+    print(timerStr)
 }

@@ -1,16 +1,16 @@
 package lesson_2
 
 fun main() {
-    var numberOfEmployees = 50
-    var numberOfInterns = 20
-    var salaryOfEmployees = 30_000
-    var salaryOfInterns = 20_000
+    val numberOfEmployees = 50
+    val numberOfInterns = 20
+    val salaryOfEmployees = 30_000
+    val salaryOfInterns = 20_000
 
-    var oplataE = numberOfEmployees * salaryOfEmployees
-    var oplataObsh = numberOfInterns * salaryOfInterns + oplataE
-    var sredOplata = oplataObsh / (numberOfEmployees + numberOfInterns)
+    var employeePayment = numberOfEmployees * salaryOfEmployees
+    var allPayment = numberOfInterns * salaryOfInterns + employeePayment
+    var averagePayment = allPayment / (numberOfEmployees + numberOfInterns)
 
-    println(oplataE)
-    println(oplataObsh)
-    println(sredOplata)
+    println(employeePayment)
+    println(allPayment)
+    println(averagePayment)
 }

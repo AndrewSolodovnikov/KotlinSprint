@@ -6,9 +6,9 @@ fun main() {
     val salaryOfEmployees = 30_000
     val salaryOfInterns = 20_000
 
-    var employeePayment = numberOfEmployees * salaryOfEmployees
-    var allPayment = numberOfInterns * salaryOfInterns + employeePayment
-    var averagePayment = allPayment / (numberOfEmployees + numberOfInterns)
+    val employeePayment = numberOfEmployees * salaryOfEmployees
+    val allPayment = numberOfInterns * salaryOfInterns + employeePayment
+    val averagePayment = allPayment / (numberOfEmployees + numberOfInterns)
 
     println(employeePayment)
     println(allPayment)

@@ -2,7 +2,11 @@ package lesson_3
 
 fun main() {
     var userName = "Гоген"
+    var welcomeMessage = "Добрый день"
 
-    println("Добрый день $userName")
-    println("Добрый вечер $userName")
+    println("$welcomeMessage $userName")
+
+    welcomeMessage = "Добрый вечер"
+
+    println("$welcomeMessage $userName")
 }

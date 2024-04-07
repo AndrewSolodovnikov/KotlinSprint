@@ -9,8 +9,6 @@ fun main() {
     println("$lastName $firstName $middleName, $age")
 
     lastName = "Сидорова"
-    firstName = "Татьяна"
-    middleName = "Сергеевна"
     age = 22
 
     println("$lastName $firstName $middleName, $age")

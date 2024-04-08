@@ -1,6 +1,6 @@
 package lesson_4
 
-fun main() {
+fun main(){
     val currentDay = 5
     val trainingArmAndAbs = currentDay % 2 == 1
     val trainingLegAndBack = currentDay % 2 == 0

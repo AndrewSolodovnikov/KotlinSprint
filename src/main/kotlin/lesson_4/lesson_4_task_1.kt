@@ -1,6 +1,7 @@
 package lesson_4
 
 const val NUMBER_OF_TABLES = 13
+
 fun main() {
     val tablesBookedToday = 13
     val tablesBookedTomorrow = 9

@@ -7,20 +7,20 @@ fun main() {
     println("Введите пароль:")
     val password = readln()
 
-    while (true) {
+    do {
         println("Вход в аккаунт")
         println("Введите свой логин:")
         val enterLogin = readln()
         println("Введите свой пароль:")
         val enterPassword = readln()
 
-        if (login == enterLogin && password == enterPassword) {
+        var isAuthorization = login == enterLogin && password == enterPassword
+        if (isAuthorization) {
             println("Авторизация прошла успешно")
-            break
         } else {
             println("Данные неверны. Введите логин и пароль снова!")
             println()
         }
-    }
+    } while (!isAuthorization)
 
 }

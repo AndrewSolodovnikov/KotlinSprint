@@ -2,7 +2,9 @@ package lesson_4
 
 const val IS_NO_DAMAGE = true
 const val PROVISION = 50
-val numberOfCrew = 55..70
+const val CREW_MIN = 55
+const val CREW_MAX = 70
+const val GOOD_WEATHER = true
 
 fun main() {
     println("На коробле нет повреждений? (true/false)")
@@ -14,7 +16,16 @@ fun main() {
     println("Сколько провизии на корабле?")
     val readProvision = readln().toInt()
 
-    println(IS_NO_DAMAGE == readDamage &&
-            PROVISION <= readProvision &&
-            readNumbersCrew in numberOfCrew)
+    println("Погода благоприятная или неблагоприятная? (true/false)")
+    val readWeather = readln().toBoolean()
+
+    println(
+        (IS_NO_DAMAGE == readDamage &&
+                PROVISION <= readProvision &&
+                readNumbersCrew in CREW_MIN..CREW_MAX) ||
+                (!IS_NO_DAMAGE == readDamage &&
+                        PROVISION >= 50 &&
+                        CREW_MAX == readNumbersCrew &&
+                        GOOD_WEATHER == readWeather)
+    )
 }

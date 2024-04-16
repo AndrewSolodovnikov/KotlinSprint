@@ -9,11 +9,12 @@ fun main() {
 
     println("Какой ингредиент хотите заменить?")
     val replaceableIngredient = readln()
-    if (listOfIngredients.contains(replaceableIngredient)) {
+
+    val indexIngredient = listOfIngredients.indexOf(replaceableIngredient)
+
+    if (indexIngredient !== -1) {
         println("Введите ингредиент который хотите добавить:")
         val newIngredient = readln()
-
-        val indexIngredient = listOfIngredients.indexOf(replaceableIngredient)
         listOfIngredients[indexIngredient] = newIngredient
     } else {
         println("Введенный ингредиент отсутствует")

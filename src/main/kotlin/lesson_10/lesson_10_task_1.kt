@@ -16,6 +16,4 @@ fun main() {
     }
 }
 
-fun randomNumber(): Int {
-    return (1..6).random()
-}
+fun randomNumber(): Int = (1..6).random()

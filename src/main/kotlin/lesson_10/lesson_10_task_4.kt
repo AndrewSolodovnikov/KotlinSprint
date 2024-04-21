@@ -6,7 +6,7 @@ fun main() {
         val moveHuman = randomNumber()
         val movePC = randomNumber()
 
-        winsHuman = round(moveHuman, movePC, winsHuman)
+        winsHuman += round(moveHuman, movePC)
 
         println("Хотите сыграть еще? (да/нет)")
         val wantMore = readln()
@@ -20,19 +20,18 @@ fun main() {
 
 fun randomNumber(): Int = (1..6).random()
 
-fun round(numberHuman: Int, numberPC: Int, winsHuman: Int): Int {
-    var roundWinsHuman = winsHuman
+fun round(numberHuman: Int, numberPC: Int): Int {
     println("Ход человека: $numberHuman")
     println("Ход машины: $numberPC")
 
     if (numberHuman > numberPC) {
         println("Победил человек")
-        roundWinsHuman++
+        return 1
     } else if (numberHuman < numberPC) {
         println("Победила машина")
+        return 0
     } else {
         println("У вас ничья")
+        return 0
     }
-
-    return roundWinsHuman
 }

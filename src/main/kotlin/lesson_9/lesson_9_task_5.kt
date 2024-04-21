@@ -1,19 +1,16 @@
 package lesson_9
 fun main() {
     var numberOfIngredient = 5
-    var listOfIngredients = mutableListOf<String>()
+    var setOfIngredients = mutableSetOf<String>()
 
-    while (numberOfIngredient > 0) {
+    while (setOfIngredients.size < numberOfIngredient) {
         println("Введите ингредиент:")
-        val newIngredient = readln()
-        if (listOfIngredients.contains(newIngredient)) {
-            continue
-        } else {
-            listOfIngredients.add(newIngredient)
-            numberOfIngredient--
-        }
+        setOfIngredients.add(readln())
     }
 
+    val sortedIngredient = setOfIngredients.sorted()
+    val firstIngredient = sortedIngredient[0].capitalize()
+
     println("Список введенных ингредиентов:")
-    println(listOfIngredients.joinToString(", "))
+    println(firstIngredient + ", " + setOfIngredients.drop(1).joinToString(", "))
 }

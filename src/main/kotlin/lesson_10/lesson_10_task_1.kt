@@ -1,8 +1,8 @@
 package lesson_10
 
 fun main() {
-    val moveHuman = randomNumber()
-    val movePC = randomNumber()
+    val moveHuman = randomNumber1()
+    val movePC = randomNumber1()
 
     println("Ход человека: $moveHuman")
     println("Ход машины: $movePC")
@@ -16,4 +16,4 @@ fun main() {
     }
 }
 
-fun randomNumber(): Int = (1..6).random()
+fun randomNumber1(): Int = (1..6).random()

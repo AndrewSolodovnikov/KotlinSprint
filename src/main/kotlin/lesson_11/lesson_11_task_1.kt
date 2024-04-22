@@ -2,7 +2,7 @@ package lesson_11
 
 fun main() {
     val user1 = User(1111, "admin", "qwerty", "aaa@mail.ru")
-    val user2 = User(2222, "user", "rdxzse", "zzz@mail.ru")
+    val user2 = User(2222, "user", "UUUYO", "zzz@mail.ru")
 
     println("Данные первого пользователя: ")
     println(user1.id)

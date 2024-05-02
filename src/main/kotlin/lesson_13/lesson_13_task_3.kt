@@ -9,7 +9,7 @@ fun main() {
         PhoneInfo("Виталий", 89067891010, "Apple")
     )
 
-    contacts.filter { it.company != null && it.company != "null" }.forEach {
+    contacts.mapNotNull { it.takeIf { it.company != null } }.forEach {
         println("Имя: ${it.name} \nТелефон: ${it.number} \nКомпания: ${it.company}")
     }
 }

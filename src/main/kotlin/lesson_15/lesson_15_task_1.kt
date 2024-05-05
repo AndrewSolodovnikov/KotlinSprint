@@ -5,29 +5,45 @@ fun main() {
     val seagull = Seagull()
     val duck = Duck()
 
-    crucian.movements()
-    seagull.movements()
-    duck.movements()
+    crucian.swim()
+    seagull.fly()
+    seagull.swim()
+    duck.fly()
+    duck.swim()
 }
 
-interface Animal {
-    fun movements()
+interface Flying {
+    fun fly()
 }
 
-class Crucian : Animal {
-    override fun movements() {
-        println("Карась плывет")
-    }
+interface Swiming {
+    fun swim()
 }
 
-class Seagull : Animal {
-    override fun movements() {
-        println("Чайка может летать, ходить и сидеть на воде")
-    }
-}
-class Duck : Animal {
-    override fun movements() {
-        println("Утка может летать, ходить и сидеть на воде")
+class Crucian : Swiming {
+    override fun swim() {
+        println("Карась может плавать")
     }
 
+}
+
+class Seagull : Flying, Swiming {
+    override fun fly() {
+        println("Чайка может лететь")
+    }
+
+    override fun swim() {
+        println("Чайка может сидеть на воде")
+    }
+
+}
+
+class Duck : Swiming, Flying {
+    override fun fly() {
+        println("Утка может летать")
+    }
+
+    override fun swim() {
+        println("Утка хорошо плавает на воде")
+    }
 }

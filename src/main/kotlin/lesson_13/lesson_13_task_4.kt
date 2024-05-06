@@ -4,11 +4,11 @@ fun main() {
     val contactsMethods = ContactsMethods()
 
     do {
-        println("Введите имя:")
+        println("Введите имя: ")
         val name = readln()
         println("Введите номер телефона:")
         val number = readln().toLongOrNull()
-        println("Введите компанию:")
+        println("Введите компанию: ")
         val company = readln()
 
         if (number != null) {

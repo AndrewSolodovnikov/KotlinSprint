@@ -28,14 +28,14 @@ class ContactsMethods {
     val contactsList = mutableListOf<Contact>()
 
     fun addContact(name: String, number: Long, company: String?) {
-        contactsList.add(Contact(name, number, company))
+        contactsList.add(Contact(name, number, company?.takeIf { it.isNotEmpty() }))
     }
 
     fun printContacts() {
-        contactsList.filter { it.company != null && it.company != "null" }.forEach {
+        contactsList.mapNotNull { it.takeIf { it.company != null } }.forEach {
             println("Имя: ${it.name} \nТелефон: ${it.number} \nКомпания: ${it.company}")
         }
     }
 }
 
-class Contact(val name: String, val number: Long, val company: String?)
+class Contact(val name: String, val number: Long, val company: String? = null)

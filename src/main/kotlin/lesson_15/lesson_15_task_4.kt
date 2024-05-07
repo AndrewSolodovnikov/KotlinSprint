@@ -1,24 +1,24 @@
 package lesson_15
 
 fun main() {
-    val musicalInstrument = MusicalInstrument("Гитара")
+    val instrument = Instrument("Скрипка")
     val accessories = Accessories("Струны")
 
-    musicalInstrument.search()
+    instrument.search()
     accessories.search()
 }
 
-interface SearchProduct {
+interface SearchInstrument {
     fun search()
 }
-class MusicalInstrument(val name: String) : SearchProduct {
+
+class Instrument (val name: String) : SearchInstrument {
     override fun search() {
         println("Выполняется поиск инструмента: $name")
     }
-
 }
 
-class Accessories(val name: String) : SearchProduct {
+class Accessories (val name: String) : SearchInstrument {
     override fun search() {
         println("Выполняется поиск аксессуара: $name")
     }

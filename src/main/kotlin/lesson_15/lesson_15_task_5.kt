@@ -19,29 +19,14 @@ fun main() {
     car.loadCargo(1)
 }
 
-abstract class Transport: CargoTransportation, PassengerTransportation {
-    private var currentPassengerCount: Int = 0
-    private var currentCargoWeight: Int = 0
+abstract class Transport {
+    var currentPassengerCount: Int = 0
+    var currentCargoWeight: Int = 0
 
-    override fun loadCargo(cargoWeight: Int) {
-        currentCargoWeight += cargoWeight
-        println("Загружено груза в автомобиль: $cargoWeight")
-    }
-
-    override fun unloadCargo(cargoWeight: Int) {
-        println("Выгружено груза: $cargoWeight")
-        println("Всего перевезено груза: $currentCargoWeight")
-    }
-
-    override fun loadPassenger(passenger: Int) {
-        currentPassengerCount += passenger
-        println("Посажено пассажиров в автомобиль: $passenger")
-    }
-
-    override fun unloadPassenger(passenger: Int) {
-        println("Высажено пассажиров: $passenger")
-        println("Всего перевезено пассажиров: $currentPassengerCount")
-    }
+    abstract fun loadCargo(cargoWeight: Int)
+    abstract fun unloadCargo(cargoWeight: Int)
+    abstract fun loadPassenger(passenger: Int)
+    abstract fun unloadPassenger(passenger: Int)
 }
 
 interface CargoTransportation {
@@ -54,7 +39,7 @@ interface PassengerTransportation {
     fun unloadPassenger(passenger: Int)
 }
 
-class Car : Transport() {
+class Car : Transport(), PassengerTransportation {
     override fun loadCargo(cargoWeight: Int) {
         println("Легковая машина не перевозит груз")
     }
@@ -64,7 +49,8 @@ class Car : Transport() {
             println("Превышено максимальное количество пассажиров")
             return
         }
-        super.loadPassenger(passenger)
+        currentPassengerCount += passenger
+        println("Посажено пассажиров в автомобиль: $passenger")
     }
 
     override fun unloadCargo(cargoWeight: Int) {
@@ -72,17 +58,19 @@ class Car : Transport() {
     }
 
     override fun unloadPassenger(passenger: Int) {
-        super.unloadPassenger(passenger)
+        println("Высажено пассажиров: $passenger")
+        println("Всего перевезено пассажиров: $currentPassengerCount")
     }
 }
 
-class Truck : Transport() {
+class Truck : Transport(), CargoTransportation, PassengerTransportation {
     override fun loadCargo(cargoWeight: Int) {
         if (cargoWeight > 2) {
             println("Превышен максимальный вес груза")
             return
         }
-        super.loadCargo(cargoWeight)
+        currentCargoWeight += cargoWeight
+        println("Загружено груза в автомобиль: $cargoWeight")
     }
 
     override fun loadPassenger(passenger: Int) {
@@ -90,15 +78,18 @@ class Truck : Transport() {
             println("Превышено количество пассажиров")
             return
         }
-        super.loadPassenger(passenger)
+        currentPassengerCount += passenger
+        println("Посажено пассажиров в автомобиль: $passenger")
     }
 
     override fun unloadCargo(cargoWeight: Int) {
-        super.unloadCargo(cargoWeight)
+        println("Выгружено груза: $cargoWeight")
+        println("Всего перевезено груза: $currentCargoWeight")
     }
 
     override fun unloadPassenger(passenger: Int) {
-        super.unloadPassenger(passenger)
+        println("Высажено пассажиров: $passenger")
+        println("Всего перевезено пассажиров: $currentPassengerCount")
     }
 }
 

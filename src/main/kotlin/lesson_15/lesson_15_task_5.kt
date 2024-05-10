@@ -22,11 +22,6 @@ fun main() {
 abstract class Transport {
     var currentPassengerCount: Int = 0
     var currentCargoWeight: Int = 0
-
-    abstract fun loadCargo(cargoWeight: Int)
-    abstract fun unloadCargo(cargoWeight: Int)
-    abstract fun loadPassenger(passenger: Int)
-    abstract fun unloadPassenger(passenger: Int)
 }
 
 interface CargoTransportation {
@@ -39,7 +34,7 @@ interface PassengerTransportation {
     fun unloadPassenger(passenger: Int)
 }
 
-class Car : Transport(), PassengerTransportation {
+class Car : Transport(), PassengerTransportation, CargoTransportation {
     override fun loadCargo(cargoWeight: Int) {
         println("Легковая машина не перевозит груз")
     }

@@ -1,16 +1,16 @@
 package lesson_14
 
 fun main() {
-    val liner = Liner()
-    val cargoShip = CargoShip()
-    val icebreaker = Icebreaker()
+    val liner = Liner2()
+    val cargoShip = CargoShip2()
+    val icebreaker = Icebreaker2()
 
     liner.printShip()
     cargoShip.printShip()
     icebreaker.printShip()
 }
 
-open class Liner(
+open class Liner2(
     val name: String = "Лайнер",
     val speed: Int = 30,
     val cargoHandling: Int = 10,
@@ -24,24 +24,24 @@ open class Liner(
     }
 }
 
-class CargoShip(
+class CargoShip2(
     name: String = "Грузовой корабль",
     speed: Int = 20,
     cargoHandling: Int = 100,
     passenger: Int = 20,
-) : Liner(name, speed, cargoHandling, passenger) {
+) : Liner2(name, speed, cargoHandling, passenger) {
     override fun printShip() {
         super.printShip()
     }
 }
 
-class Icebreaker(
+class Icebreaker2(
     name: String = "Ледокол",
     speed: Int = 10,
     cargoHandling: Int = 5,
     passenger: Int = 10,
     isIcebreaker: Boolean = true,
-): Liner(name, speed, cargoHandling, passenger) {
+): Liner2(name, speed, cargoHandling, passenger) {
     override fun printShip() {
         super.printShip()
     }

@@ -2,9 +2,9 @@ package lesson_12
 
 fun main() {
     println("День 1:")
-    val weather1 = WeatherInfo(300, 290, false)
+    val weather1 = WeathersInfo(300, 290, false)
     println("День 2:")
-    val weather2 = WeatherInfo(295, 280, true)
+    val weather2 = WeathersInfo(295, 280, true)
 }
 
 class WeatherInfo(dayTemperatureKelvin: Int, nightTemperatureKelvin: Int, precipitation: Boolean) {

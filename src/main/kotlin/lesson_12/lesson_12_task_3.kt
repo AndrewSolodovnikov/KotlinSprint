@@ -1,8 +1,8 @@
 package lesson_12
 
 fun main() {
-    val weather1 = WeatherInfo(300,290,false)
-    val weather2 = WeatherInfo(295, 280, true)
+    val weather1 = WeathersInfo(300,290,false)
+    val weather2 = WeathersInfo(295, 280, true)
 
     println("День 1:")
     weather1.printWeather()
@@ -10,7 +10,7 @@ fun main() {
     weather2.printWeather()
 }
 
-class WeatherInfo(dayTemperatureKelvin: Int, nightTemperatureKelvin: Int, precipitation: Boolean) {
+class WeathersInfo(dayTemperatureKelvin: Int, nightTemperatureKelvin: Int, precipitation: Boolean) {
     val kelvinTemperature = 273.15
     var dayTemperatureCelsius: Int = (dayTemperatureKelvin - kelvinTemperature).toInt()
     var nightTemperatureCelsius: Int = (nightTemperatureKelvin - kelvinTemperature).toInt()

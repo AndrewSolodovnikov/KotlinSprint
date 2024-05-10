@@ -87,4 +87,3 @@ class Truck : Transport(), CargoTransportation, PassengerTransportation {
         println("Всего перевезено пассажиров: $currentPassengerCount")
     }
 }
-

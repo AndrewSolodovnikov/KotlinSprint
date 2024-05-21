@@ -1,18 +1,18 @@
 package lesson_16
 
 fun main() {
-    val privateUser = PrivateUser()
+    val customer = Customer()
 
     println("Введите пароль:")
     val enteredPassword = readln()
-    privateUser.validatingPassword(enteredPassword)
+    customer.validatePassword(enteredPassword)
 }
 
-class PrivateUser {
-    private val login = "aaa"
+class Customer {
+    private val login: String = "aaa"
     private val password = "jyuy213"
 
-    fun validatingPassword(enteredPassword: String) {
+    fun validatePassword(enteredPassword: String) {
         if (enteredPassword == password) println("Вы ввели верный пароль") else println("Введен неверный пароль")
     }
 }

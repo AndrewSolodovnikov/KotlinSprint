@@ -1,18 +1,20 @@
 package lesson_16
 
 fun main() {
-    val onlineOrdering = OnlineOrdering()
+    val onlineOrdering = OnlineOrder("000132457")
 
-    onlineOrdering.changeOrderStatus(true)
+    onlineOrdering.orderModification(true)
     onlineOrdering.printStatus()
 }
 
-class OnlineOrdering {
-    private val numberOrdering = "000132457"
-    private var isOrderReady = false
+class OnlineOrder(val orderNumber: String, private var isOrderReady: Boolean = false) {
 
-    fun changeOrderStatus(status: Boolean) {
+    private fun changeOrderStatus(status: Boolean) {
         isOrderReady = status
+    }
+
+    fun orderModification(status: Boolean) {
+        changeOrderStatus(status)
     }
 
     fun printStatus() {

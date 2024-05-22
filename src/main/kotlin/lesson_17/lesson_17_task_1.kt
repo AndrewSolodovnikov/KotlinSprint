@@ -4,7 +4,7 @@ fun main() {
 
 }
 
-class QuizGame(private val answer: String, var question: String) {
+class QuizGame(private val answer: String, private var question: String) {
     val myAnswer: String = answer
         get() = field
 

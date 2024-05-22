@@ -1,27 +1,45 @@
 package lesson_16
 
+const val MAX_HEALTH = 100
 fun main() {
-    val gladiator = Gladiator()
+    val gladiator = Gladiator("Галилей")
 
     gladiator.damage()
     gladiator.treatment()
+    gladiator.treatment()
+    gladiator.damage()
     gladiator.damage()
     gladiator.damage()
     gladiator.damage()
 }
 
-class Gladiator {
-    private val name: String = "Галилей"
-    private var health: Int = 90
-    private var impactForce: Int = 40
+class Gladiator(val name: String) {
+    private var health: Int = MAX_HEALTH
+    private var impactForce: Int = randomNumberGenerator()
+
+    private fun randomNumberGenerator(): Int {
+        return (30..60).random()
+    }
+
+    private fun randomDamage(): Int {
+        return randomNumberGenerator()
+    }
+
+    private fun randomTreatment(): Int {
+        return randomNumberGenerator()
+    }
+
+    private fun death() {
+        println("Гладиатор $name повержен")
+        health = 0
+        impactForce = 0
+    }
 
     fun damage() {
         if (health > 0) {
-            health -= 60
+            health -= randomDamage()
             if (health <= 0) {
-                println("Гладиатор $name повержен")
-                health = 0
-                impactForce = 0
+                death()
             } else {
                 println("-- нанесен урон, текущее здоровье $health %")
             }
@@ -32,9 +50,9 @@ class Gladiator {
 
     fun treatment() {
         if (health > 0 ) {
-            health += 40
+            health += randomTreatment()
+            if (health > MAX_HEALTH) health = MAX_HEALTH
             println("++ вы поправили здоровье, теперь оно составляет $health %")
-            if (health > 100) health = 100
         } else {
             println("Вы не можете восстановить здоровье гладиатора, он был убит")
         }

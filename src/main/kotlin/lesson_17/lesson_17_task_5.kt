@@ -9,10 +9,9 @@ fun main() {
 }
 
 class Client(private var login: String, private var password: String) {
-    var passwordActions: String = password
+    var passwordActions: String
         set(value) {
             println("Вы не можете изменить пароль")
-            field = field
         }
         get() {
             return "*".repeat(password.length)

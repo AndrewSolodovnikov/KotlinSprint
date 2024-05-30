@@ -2,7 +2,7 @@ package lesson_20
 
 fun main() {
     val checkKey: (MyPlayer) -> Unit = { myPlayer: MyPlayer ->
-        if (myPlayer.isKey) println("Дверь открыта") else println("Дверь закрыта")
+        if (myPlayer.hasKey) println("Дверь открыта") else println("Дверь закрыта")
     }
 
     val myPlayer1 = MyPlayer("Антон", true)
@@ -12,4 +12,4 @@ fun main() {
     checkKey(myPlayer2)
 }
 
-class MyPlayer(val name: String, var isKey: Boolean)
+class MyPlayer(val name: String, var hasKey: Boolean)

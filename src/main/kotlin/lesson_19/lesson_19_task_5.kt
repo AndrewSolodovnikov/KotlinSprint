@@ -1,29 +1,32 @@
 package lesson_19
 
+const val FEMALE_CHAR = "ж"
+const val MALE_CHAR = "м"
 fun main() {
     val clientList = mutableListOf<Client>()
 
     repeat(5) {
         println("Введите имя:")
         val name = readln()
+        var gender: String?
 
-        while (true) {
+        do {
             println("Введите пол буквой Ж или М")
-            var gender = readln()
-            if (gender.lowercase() == "ж") {
+            gender = readln().lowercase()
+            if (gender == FEMALE_CHAR) {
                 gender = Gender.FEMALE.description
-            } else if (gender.lowercase() == "м") {
+            } else if (gender == MALE_CHAR) {
                 gender = Gender.MALE.description
             } else {
                 println("Что-то пошло не так!")
-                continue
+                gender = null
             }
-            clientList.add(Client(name, gender))
-            break
-        }
+        } while (gender == null)
+
+        clientList.add(Client(name, gender))
     }
 
-    clientList.forEach{ println(it.toString()) }
+    clientList.forEach { println(it.toString()) }
 }
 
 class Client(var name: String, private val gender: String) {

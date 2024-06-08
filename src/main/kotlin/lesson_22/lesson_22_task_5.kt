@@ -7,11 +7,9 @@ fun main() {
         "07-06-2024",
         4.36)
 
-    val (namePlaceOrEven, descriptionPlaceOrEven, dateOrTime, distanceFromEarth) = alphaCentauri
-
-    println("$namePlaceOrEven - $descriptionPlaceOrEven \n" +
-            "Дата фиксации события: $dateOrTime \n" +
-            "Расстояние от Земли: $distanceFromEarth св. лет")
+    println("${alphaCentauri.component1()} - ${alphaCentauri.component2()} \n" +
+            "Дата фиксации события: ${alphaCentauri.component3()} \n" +
+            "Расстояние от Земли: ${alphaCentauri.component4()} св. лет")
 }
 
 data class GalacticGuide(
